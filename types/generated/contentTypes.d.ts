@@ -835,11 +835,6 @@ export interface ApiArticleArticle extends Schema.CollectionType {
       }>;
     slug: Attribute.UID<'api::article.article', 'title'>;
     cover: Attribute.Media;
-    author: Attribute.Relation<
-      'api::article.article',
-      'manyToOne',
-      'api::author.author'
-    >;
     category: Attribute.Relation<
       'api::article.article',
       'manyToOne',
@@ -848,15 +843,15 @@ export interface ApiArticleArticle extends Schema.CollectionType {
     blocks: Attribute.DynamicZone<
       ['shared.media', 'shared.quote', 'shared.rich-text', 'shared.slider']
     >;
-    tag: Attribute.String;
-    recomend: Attribute.Relation<
+    timeToRead: Attribute.String;
+    articles: Attribute.Relation<
       'api::article.article',
-      'oneToMany',
+      'manyToMany',
       'api::article.article'
     >;
-    article: Attribute.Relation<
+    recommends: Attribute.Relation<
       'api::article.article',
-      'manyToOne',
+      'manyToMany',
       'api::article.article'
     >;
     createdAt: Attribute.DateTime;
@@ -892,11 +887,6 @@ export interface ApiAuthorAuthor extends Schema.CollectionType {
     name: Attribute.String;
     avatar: Attribute.Media;
     email: Attribute.String;
-    articles: Attribute.Relation<
-      'api::author.author',
-      'oneToMany',
-      'api::article.article'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

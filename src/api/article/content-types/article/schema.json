@@ -33,12 +33,6 @@
         "videos"
       ]
     },
-    "author": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::author.author",
-      "inversedBy": "articles"
-    },
     "category": {
       "type": "relation",
       "relation": "manyToOne",
@@ -54,20 +48,20 @@
         "shared.slider"
       ]
     },
-    "tag": {
+    "timeToRead": {
       "type": "string"
     },
-    "recomend": {
+    "articles": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::article.article",
-      "mappedBy": "article"
+      "inversedBy": "recommends"
     },
-    "article": {
+    "recommends": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::article.article",
-      "inversedBy": "recomend"
+      "inversedBy": "articles"
     }
   }
 }
