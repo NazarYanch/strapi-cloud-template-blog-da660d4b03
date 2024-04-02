@@ -62,6 +62,9 @@
       "relation": "manyToMany",
       "target": "api::article.article",
       "inversedBy": "articles"
+    },
+    "tag": {
+      "type": "string"
     }
   }
 }

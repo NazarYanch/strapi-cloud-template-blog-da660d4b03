@@ -854,6 +854,7 @@ export interface ApiArticleArticle extends Schema.CollectionType {
       'manyToMany',
       'api::article.article'
     >;
+    tag: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
