@@ -53,6 +53,21 @@
         "shared.rich-text",
         "shared.slider"
       ]
+    },
+    "tag": {
+      "type": "string"
+    },
+    "recomend": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article.article",
+      "mappedBy": "article"
+    },
+    "article": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::article.article",
+      "inversedBy": "recomend"
     }
   }
 }
